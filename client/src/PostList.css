@@ -1,0 +1,34 @@
+.posts-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 40px;
+  gap: 20px; /* Space between posts */
+}
+
+.post-container {
+  background-color: lightgreen; /* Light green background */
+  width: calc(33.33% - 20px); /* Adjust to screen size */
+  padding: 20px; /* Padding inside the post */
+  margin-bottom: 20px; /* Space at the bottom of each post */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.post-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .post-container {
+    width: calc(50% - 20px); /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .post-container {
+    width: 100%; /* Full width for mobile screens */
+  }
+}

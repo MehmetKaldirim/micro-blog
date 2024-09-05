@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CommentCreate from "./CommentCreate";
 import CommentList from "./CommentList";
+import "./PostList.css"; // Import the custom CSS
 
 const PostList = () => {
   const [posts, setPosts] = useState({});
@@ -18,12 +19,8 @@ const PostList = () => {
 
   const renderedPosts = Object.values(posts).map((post) => {
     return (
-      <div
-        className="card"
-        style={{ width: "30%", marginBottom: "20px" }}
-        key={post.id}
-      >
-        <div className="card-body">
+      <div className="post-container" key={post.id}>
+        <div className="post-body">
           <h3>{post.title}</h3>
           <CommentList comments={post.comments} />
           <CommentCreate postId={post.id} />
@@ -32,11 +29,7 @@ const PostList = () => {
     );
   });
 
-  return (
-    <div className="d-flex flex-row flex-wrap justify-content-between">
-      {renderedPosts}
-    </div>
-  );
+  return <div className="posts-wrapper">{renderedPosts}</div>;
 };
 
 export default PostList;
